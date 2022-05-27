@@ -18,6 +18,7 @@ public class Main extends JavaPlugin {
     instace = this;
     new EventsManager().registers();
     getCommand("mod").setExecutor(new Commandes());
+    getCommand("report").setExecutor(new Commandes());
     }
 
     public static Main getInstace() {

@@ -5,3 +5,4 @@ author: NapoTwiixe
 description: Plugin de Modération
 commands:
   mod:
+  report:
