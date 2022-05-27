@@ -1,0 +1,7 @@
+main: fr.napotwiixe.mod.Main
+version: 0.1
+name: ModPl
+author: NapoTwiixe
+description: Plugin de Modération
+commands:
+  mod:

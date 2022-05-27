@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact name="Moderation:jar">
+    <output-path>$PROJECT_DIR$/../../ServMcLocal/plugins</output-path>
+    <root id="root">
+      <element id="archive" name="Moderation.jar">
+        <element id="module-output" name="Moderation" />
+      </element>
+      <element id="library" level="project" name="spigot" />
+    </root>
+  </artifact>
+</component>
