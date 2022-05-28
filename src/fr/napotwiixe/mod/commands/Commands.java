@@ -1,6 +1,7 @@
 package fr.napotwiixe.mod.commands;
 
 import fr.napotwiixe.mod.Main;
+import fr.napotwiixe.mod.manager.PlayerManager;
 import fr.napotwiixe.mod.utils.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -10,7 +11,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
-public class Commandes implements CommandExecutor {
+public class Commands implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd,String label, String[] args) {
 
@@ -24,24 +25,26 @@ public class Commandes implements CommandExecutor {
             if(!player.hasPermission("moderation.mod)")){
                 player.sendMessage("§cvous n'avez pas la permission d'executer cette commande!");
                 return false;
+
             }
+
+
             if(Main.getInstace().moderateurs.contains(player.getUniqueId())){
+                PlayerManager pm = PlayerManager.getFromPlayer(player);
+
                 Main.getInstace().moderateurs.remove(player.getUniqueId());
                 player.getInventory().clear();
                 player.sendMessage("§cVous n'êtes plus en /mod");
-                /**
-                 *TODO inv
-                 */
-
+                pm.giveInventory();
+                pm.destroy();
                 return false;
             }
+            PlayerManager pm = new PlayerManager(player);
+            pm.init();
 
             Main.getInstace().moderateurs.add(player.getUniqueId());
             player.sendMessage("§aVous êtes en /mod");
-
-            /**
-             * TODO inv
-             */
+            pm.saveInventory();
         }
 
         if(label.equalsIgnoreCase("report")){
