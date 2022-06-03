@@ -4,6 +4,7 @@ import fr.napotwiixe.mod.Main;
 import fr.napotwiixe.mod.manager.PlayerManager;
 import fr.napotwiixe.mod.utils.ItemBuilder;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -36,6 +37,7 @@ public class Commands implements CommandExecutor {
                 player.getInventory().clear();
                 player.sendMessage("§cVous n'êtes plus en /mod");
                 pm.giveInventory();
+                player.setGameMode(GameMode.SURVIVAL);
                 pm.destroy();
                 return false;
             }
@@ -45,6 +47,7 @@ public class Commands implements CommandExecutor {
             Main.getInstace().moderateurs.add(player.getUniqueId());
             player.sendMessage("§aVous êtes en /mod");
             pm.saveInventory();
+            player.setGameMode(GameMode.CREATIVE);
         }
 
         if(label.equalsIgnoreCase("report")){
