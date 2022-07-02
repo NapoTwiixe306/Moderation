@@ -68,7 +68,7 @@ public class Commands implements CommandExecutor {
 
         if(label.equalsIgnoreCase("report")){
             if(args.length != 1){
-                player.sendMessage("§cVeuillez saisir le pseudo d'un joueur !");
+                player.sendMessage("§cVeuillez saisir le pseudo d'un joueur svp !");
                 return false;
             }
 
