@@ -11,20 +11,20 @@ import java.util.UUID;
 
 public class Main extends JavaPlugin {
 
-    private static Main instace;
+    private static Main Instance;
 
     public ArrayList<UUID> moderateurs = new ArrayList<UUID>();
     public HashMap<UUID, PlayerManager> players = new HashMap<>();
 
     @Override
     public void onEnable() {
-    instace = this;
+    Instance = this;
     new EventsManager().registers();
     getCommand("mod").setExecutor(new Commands());
     getCommand("report").setExecutor(new Commands());
     }
 
-    public static Main getInstace() {
-        return instace;
+    public static Main getInstance() {
+        return Instance;
     }
 }

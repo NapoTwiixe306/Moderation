@@ -14,15 +14,19 @@ public class PlayerManager {
     }
 
     public void init(){
-        Main.getInstace().players.put(player.getUniqueId(), this);
+        Main.getInstance().players.put(player.getUniqueId(), this);
     }
 
     public void destroy(){
-        Main.getInstace().players.get(player.getUniqueId());
+        Main.getInstance().players.get(player.getUniqueId());
     }
 
     public static PlayerManager getFromPlayer(Player player){
-        return Main.getInstace().players.get(player.getUniqueId());
+        return Main.getInstance().players.get(player.getUniqueId());
+    }
+
+    public static boolean isInModerationMod(Player player){
+        return Main.getInstance().moderateurs.contains(player.getUniqueId());
     }
 
     public ItemStack[] getItems() {
